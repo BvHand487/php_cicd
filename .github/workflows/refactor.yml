@@ -35,10 +35,17 @@ jobs:
       - name: Run Rector
         run: vendor/bin/rector
         
-      - name: Commit Changes (if any)
+      - name: Configure git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Authenticate git
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/BvHand487/php_cicd.git
+
+      - name: Update changes
+        run: |
           git add .
-          git diff --quiet && git diff --staged --quiet || git commit -m "Automated code refactor with Pint and Refacto"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Automated code refactor with Pint and Rector"
           git push
