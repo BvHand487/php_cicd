@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "pestphp/pest": "^3.8",
+        "laravel/pint": "^1.21",
+        "rector/rector": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
