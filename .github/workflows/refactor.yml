@@ -1,17 +1,16 @@
-name: PHP Composer
+name: Refactor
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: [ 'Test' ]
+    types:
+      - completed
 
 permissions:
   contents: read
 
 jobs:
   refactor:
-    needs: test
     runs-on: ubuntu-latest
 
     steps:
