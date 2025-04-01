@@ -42,7 +42,7 @@ jobs:
 
       - name: Authenticate git
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/BvHand487/php_cicd.git
+          git remote set-url origin https://${{secrets.PAT_TOKEN}}@github.com/BvHand487/php_cicd.git
 
       - name: Update changes
         run: |
