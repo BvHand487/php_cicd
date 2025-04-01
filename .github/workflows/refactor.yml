@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   refactor:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -31,8 +32,8 @@ jobs:
       - name: Run Pint
         run: vendor/bin/pint
 
-      - name: Run Refacto
-        run: vendor/bin/refacto
+      - name: Run Rector
+        run: vendor/bin/rector
         
       - name: Commit Changes (if any)
         run: |
