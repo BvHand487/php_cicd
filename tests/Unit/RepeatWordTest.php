@@ -9,7 +9,7 @@ class RepeatWordTestConfig
     public static $LOOPS = 50;
 }
 
-test('<0 repetitions', function () {
+test('<0 repetitions', function (): void {
     $MSG = "repeat_word(WORD, 0) was not '...'.";
 
     assertEquals('...', repeat_word('a', random_int(-1000, -1)), $MSG);
@@ -22,7 +22,7 @@ test('<0 repetitions', function () {
     }
 });
 
-test('0 repetitions', function () {
+test('0 repetitions', function (): void {
     $MSG = "repeat_word(WORD, 0) was not '...'.";
 
     assertEquals('...', repeat_word('a', 0), $MSG);
@@ -35,7 +35,7 @@ test('0 repetitions', function () {
     }
 });
 
-test('1 repetitions', function () {
+test('1 repetitions', function (): void {
     $MSG = 'repeat_word(WORD, 1) was different from WORD.';
 
     assertEquals('a', repeat_word('a', 1), $MSG);
@@ -48,7 +48,7 @@ test('1 repetitions', function () {
     }
 });
 
-test('valid N repetitions', function () {
+test('valid N repetitions', function (): void {
     $MSG = 'repeat_word(WORD, 1-5) was different from WORD * (1-5).';
 
     $rep = random_int(1, 5);
@@ -63,7 +63,7 @@ test('valid N repetitions', function () {
     }
 });
 
-test('>5 repetitions', function () {
+test('>5 repetitions', function (): void {
     $MSG = 'repeat_word(WORD, >5) was different from WORD * 5.';
 
     assertEquals('aaaaa', repeat_word('a', random_int(6, 1000)), $MSG);
